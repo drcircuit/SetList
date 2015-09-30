@@ -1,0 +1,23 @@
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Song</th>
+            <th>Key</th>
+            <th>Temp</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="song in songs" ng-hide="song.played">
+            <td>{{song.title}}</td>
+            <td>{{song.key}}</td>
+            <td>{{song.tempo}}</td>
+            <td><input type="checkbox" ng-model="song.played"/></td>
+        </tr>
+        </tbody>
+    </table>
+    <ul>
+        <h1>Played songs</h1>
+       <li ng-click="song.played = !song.played" ng-repeat="song in songs | filter:{played : true}">{{song.title}}</li>
+    </ul>
+</div>
